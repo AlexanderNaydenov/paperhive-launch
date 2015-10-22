@@ -23,7 +23,6 @@ var streamify = require('gulp-streamify');
 var minifyCSS = require('gulp-minify-css');
 var htmlmin = require('gulp-htmlmin');
 var _ = require('lodash');
-var protractor = require('gulp-protractor').protractor;
 var jshint = require('gulp-jshint');
 var htmlhint = require('gulp-htmlhint');
 var jscs = require('gulp-jscs');
@@ -109,14 +108,14 @@ gulp.task('js:watch', ['templates'], function() {
 });
 
 gulp.task('jshint', function() {
-  return gulp.src(['./src/js/**/*.js', './test/**/*.js'])
+  return gulp.src(['./src/js/**/*.js'])
     .pipe(jshint())
     .pipe(jshint.reporter('default'))
     .pipe(jshint.reporter('fail'));
 });
 
 gulp.task('jscs', function() {
-  return gulp.src(['./src/js/**/*.js', './test/**/*.js'])
+  return gulp.src(['./src/js/**/*.js'])
     .pipe(jscs())
     .pipe(jscsStylish());  // log style errors
 });
@@ -256,18 +255,6 @@ gulp.task('serve:reload', function() {
 // watch built files and initiate live reload
 gulp.task('serve:watch', ['default:watch'], function() {
   gulp.watch(paths.build, batch('serve:reload'));
-});
-
-// test
-gulp.task('test', ['serve-nowatch'], function() {
-  gulp.src(['./test/protractor/*.js'])
-  .pipe(protractor({
-    configFile: 'test/protractor/protractor.js'
-  }))
-  .on('error', handleError)
-  .on('end', function(e) {
-    connect.serverClose();
-  });
 });
 
 gulp.task(

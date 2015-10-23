@@ -168,7 +168,7 @@ gulp.task('static', [], function() {
     }))
     .pipe(gulp.dest('build/static'));
 
-  return merge(index, sitemap, staticFiles);
+  return merge(index, sitemap, deployFiles, staticFiles);
 });
 
 // copy vendor assets files

@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /uploads/
+Disallow: /api/
+Sitemap: https://paperhive.org/sitemap.xml

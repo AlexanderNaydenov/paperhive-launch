@@ -1,5 +1,6 @@
 # PaperHive Launch Page
 
+[![Build Status](https://jenkins.paperhive.org/buildStatus/icon?job=frontend-launch)](https://jenkins.paperhive.org/job/frontend-launch/)
 [![Dependency Status](https://gemnasium.com/paperhive/paperhive-launch.svg)](https://gemnasium.com/paperhive/paperhive-launch)
 
 ---

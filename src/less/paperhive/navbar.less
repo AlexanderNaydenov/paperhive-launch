@@ -44,6 +44,10 @@ body {
   }
 }
 
+.navbar-header {
+  float: none;
+}
+
 .ph-navbar-shadow {
   z-index: @zindex-navbar-fixed - 2;
   border-bottom: 1px solid #bfbfbf;
@@ -53,14 +57,8 @@ body {
   top: @navbar-height + @ph-navbar-border;
 }
 
-.navbar-header {
-  width: 100%;
-}
-
 .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
-  @media (min-width: @screen-md-min) {
-    margin-left: 0;
-  }
+  margin-left: 0;
 }
 
 .navbar-brand {
@@ -76,13 +74,7 @@ body {
 
   // Change size of PaperHiver logo on XS-Viewport, so it does not breaks up
   @media (max-width: @screen-xs-max){
-    max-width: 210px;
-    width: auto;
-    height: 70px;
     padding-top: 12px;
     padding-bottom: 12px;
-    > img {
-
-    }
   }
 }

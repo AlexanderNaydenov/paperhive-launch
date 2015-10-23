@@ -37,6 +37,7 @@ var config = require('./config.json');
 
 var paths = {
   templates: 'src/templates/**/*.html',
+  sitemap: 'src/sitemap.xml',
   staticFiles: 'static/**/*',
   index: 'src/index.html',
   less: 'src/less/**/*.less',
@@ -150,6 +151,10 @@ gulp.task('static', [], function() {
     .pipe(debug ? gutil.noop() : htmlmin(htmlminOpts))
     .pipe(gulp.dest('build'));
 
+  var sitemap = gulp.src(paths.sitemap, {base: 'src'})
+    .pipe(template({date: (new Date()).toISOString().substring(0,10)}))
+    .pipe(gulp.dest('build'));
+
   var staticFiles = gulp.src(paths.staticFiles)
     .pipe(imagemin({
       interlaced: true,  // gif
@@ -159,7 +164,7 @@ gulp.task('static', [], function() {
     }))
     .pipe(gulp.dest('build/static'));
 
-  return merge(index, staticFiles);
+  return merge(index, sitemap, staticFiles);
 });
 
 // copy vendor assets files

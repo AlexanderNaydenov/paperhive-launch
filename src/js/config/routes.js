@@ -28,6 +28,7 @@ module.exports = function(app) {
         .when('/404', '404')
         .when('/about', 'about')
         .when('/contact', 'contact')
+        .when('/jobs', 'jobs')
         .when('/legalnotice', 'legalnotice')
         .when('/subscribed', 'subscribed')
 
@@ -108,6 +109,18 @@ module.exports = function(app) {
               name: 'description',
               content: 'Contact PaperHive and ask us questions or send us ' +
                 'suggestions.'
+            }
+          ]
+        })
+
+        .segment('jobs', {
+          templateUrl: 'templates/jobs.html',
+          title: 'Jobs · PaperHive',
+          meta: [
+            {
+              name: 'description',
+              content: 'Join the PaperHive team and help us to make ' +
+                'research fun again.'
             }
           ]
         })

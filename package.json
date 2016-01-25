@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "description": "PaperHive launch",
   "scripts": {
-    "build": "gulp"
+    "build": "gulp",
+    "ci": "npm run install-deps && npm run build",
+    "install-deps": "npm install && bower install"
   },
   "author": "PaperHive team <info@paperhive.org>",
   "license": "GPL-3.0",
